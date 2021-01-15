@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>BookStoreEE</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.atguigu.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/user/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+
+    <servlet-name>RegistServlet</servlet-name>
+    <servlet-class>com.atguigu.servlet.RegistServlet</servlet-class>
+  </servlet>
+  <servlet>
+
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.atguigu.servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet>
+
+    <servlet-name>BaseServlet</servlet-name>
+    <servlet-class>com.atguigu.servlet.BaseServlet</servlet-class>
+  </servlet>
+  <servlet>
+
+    <servlet-name>BookManagerServlet</servlet-name>
+    <servlet-class>com.atguigu.servlet.BookManagerServlet</servlet-class>
+  </servlet>
+  <servlet>
+ 
+    <servlet-name>BookClientServlet</servlet-name>
+    <servlet-class>com.atguigu.servlet.BookClientServlet</servlet-class>
+  </servlet>
+<!-- mapping信息 -->
+  <servlet-mapping>
+    <servlet-name>RegistServlet</servlet-name>
+    <url-pattern>/user/RegistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BaseServlet</servlet-name>
+    <url-pattern>/BaseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BookManagerServlet</servlet-name>
+    <url-pattern>/Manager/BookManagerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BookClientServlet</servlet-name>
+    <url-pattern>/Client/BookClientServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
