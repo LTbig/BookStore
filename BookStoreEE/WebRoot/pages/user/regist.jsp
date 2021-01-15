@@ -15,13 +15,17 @@ pageEncoding="UTF-8"%>
    reg.test("abc");
 *
 */
-
 	// 页面加载完成之后
 	$(function(){
-		
-		// 给注册按钮添加事件
+		//给验证码添加点击事件
+		$("#codeImg").click(function(){
+			//alert("nihao");
+			//改变src,需要让某些浏览器知道这是新的请求。如果是统一请求有些浏览器会从缓存中获取
+			var url="code.jpg?t"+"math.random()";
+			$(this).prop("src",url);
+		});
+		// 给注册按钮添加点击事件
 		$("#sub_btn").click(function(){
-			
 			// 获取用户名
 			//var usernameValue = $("#username").val();
 			var usernameValue = $(".itxt[name='username']").val();
@@ -150,15 +154,13 @@ pageEncoding="UTF-8"%>
 									<br />
 									<br />
 									<label>验证码：</label>
-									<input class="itxt" type="text" style="width: 150px;" name="code" id="code"/>
-									<img alt="" src="static/img/code.bmp" style="float: right; margin-right: 40px">									
+									<input class="itxt" type="text" style="width: 110px;" name="code" id="code"/>
+									<img alt="" src="code.jpg" style="float: right; margin-right: 40px;width: 130px;height: 45px" id="codeImg">									
 									<br />
 									<br />
 									<input type="submit" value="注册" id="sub_btn" />
-									
 								</form>
 							</div>
-							
 						</div>
 					</div>
 				</div>

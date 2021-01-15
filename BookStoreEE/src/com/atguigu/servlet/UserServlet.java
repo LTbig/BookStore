@@ -11,6 +11,8 @@ import com.atguigu.bean.User;
 import com.atguigu.service.UserService;
 import com.atguigu.serviceImp.UserServiceImp;
 import com.atguigu.utils.WEB_Utils;
+import com.google.code.kaptcha.Constants;
+import com.sun.corba.se.impl.orbutil.closure.Constant;
 /*
  * 处理所有和用户相关的请求
  * 抽取出BaseServlet以后UserServlet里面只需要编写相应的处理逻辑(方法)即可
@@ -53,9 +55,22 @@ public class UserServlet extends BaseServlet {
 	//注册方法
 	protected void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	/*	String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String email = request.getParameter("email");*/
+		//获取用户输入的验证码和获取session中的验证码
+		//获取页面的验证码
+		String code=request.getParameter("code");
+		//获取session中的验证码
+		HttpSession session = request.getSession();
+		String sessionCode = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+		System.out.println("页面验证码："+code);
+		System.out.println("session验证码："+sessionCode);
+		//如果验证码一致 则注册   否则回到注册页面并提示验证码错误
+		//问题  由于session中的验证码为Null 所以会有空指针异常！  
+		//所以急需解决session为啥总是总是获取为空的问题
+		if(!sessionCode.equals(code)){
+			request.setAttribute("msg", "验证码错误");
+			request.getRequestDispatcher("/pages/user/regist.jsp").forward(request, response);
+			return;
+		}
 		User user = WEB_Utils.param2bean(request, new User());//使用第一种封装方法
 		//将用户信息保存到数据库中
 		boolean b = userService.regist(user);

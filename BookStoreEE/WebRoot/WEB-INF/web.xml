@@ -10,7 +10,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.atguigu.servlet.LoginServlet</servlet-class>
   </servlet>
@@ -19,27 +18,22 @@
     <url-pattern>/user/LoginServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-
     <servlet-name>RegistServlet</servlet-name>
     <servlet-class>com.atguigu.servlet.RegistServlet</servlet-class>
   </servlet>
   <servlet>
-
     <servlet-name>UserServlet</servlet-name>
     <servlet-class>com.atguigu.servlet.UserServlet</servlet-class>
   </servlet>
   <servlet>
-
     <servlet-name>BaseServlet</servlet-name>
     <servlet-class>com.atguigu.servlet.BaseServlet</servlet-class>
   </servlet>
   <servlet>
-
     <servlet-name>BookManagerServlet</servlet-name>
     <servlet-class>com.atguigu.servlet.BookManagerServlet</servlet-class>
   </servlet>
   <servlet>
- 
     <servlet-name>BookClientServlet</servlet-name>
     <servlet-class>com.atguigu.servlet.BookClientServlet</servlet-class>
   </servlet>
@@ -63,5 +57,26 @@
   <servlet-mapping>
     <servlet-name>BookClientServlet</servlet-name>
     <url-pattern>/Client/BookClientServlet</url-pattern>
+  </servlet-mapping>
+  <!-- 验证码的配置 -->
+  <servlet>
+  	<servlet-name>KaptchaServlet</servlet-name>
+  	<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+  	<init-param>
+  		<param-name>kaptcha.image.width</param-name>
+  		<param-value>500</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>kaptcha.textproducer.char.string</param-name>
+  		<param-value>abcdefghigklmnopqrstuvwxyz</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>kaptcha.textproducer.font.names</param-name>
+  		<param-value>微软雅黑</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>KaptchaServlet</servlet-name>
+  	<url-pattern>/code.jpg</url-pattern>
   </servlet-mapping>
 </web-app>
