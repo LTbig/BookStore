@@ -1,0 +1,2 @@
+项目使用的是myeclipse
+最大的问题是session的获取
